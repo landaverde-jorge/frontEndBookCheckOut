@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, KeyboardAvoidingView, Button} from 'react-native';
 import LoginForm from './LoginForm';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 export default class Login extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Home',
-    drawerIcon: ({tintColor}) => {
-      return (
-        <MaterialIcons
-          name="mood"
-          size={24}
-          style={{color: tintColor}}>
-        </MaterialIcons>
-      );
-    }
-  };
+
 
   render() {
     return (
