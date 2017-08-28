@@ -1,0 +1,22 @@
+/* @flow */
+
+import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
+import Splash from './Splash';
+import Login from './Login/Login';
+import Library from './Library';
+import MyBooks from './MyBooks';
+import ScanScreen from './ScanScreen';
+
+import { DrawerNavigator } from 'react-navigation';
+
+const Navigator = DrawerNavigator({
+  Login: { screen: Login },
+  Home: { screen: Splash },
+  Library: {screen: Library},
+  MyBooks: {screen: MyBooks},
+  ScanScreen: {screen: ScanScreen},
+
+});
+
+export default Navigator;
