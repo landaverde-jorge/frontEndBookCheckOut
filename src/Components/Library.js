@@ -17,7 +17,7 @@ export default class Library extends Component {
     }
   }
   componentDidMount(){
-    fetch('http://192.168.29.237:3000/books/')
+    fetch('http://192.168.87.205:3000/books/')
      .then(res => res.json())
      .then(books => this.setState({
        "books" : books
@@ -53,8 +53,12 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   heading: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
+  },
+  book: {
+    fontSize: 15,
+    fontStyle: 'italic',
   },
 });
 

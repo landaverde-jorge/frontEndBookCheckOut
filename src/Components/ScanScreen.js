@@ -26,17 +26,12 @@ export default class ScanScreen extends Component {
       const refId = this.props.navigation.state.params.id;
       if(refId === e.data){
         this.props.navigation.navigate('MyBooks')
-      // fetch('http://localhost/books/id')
-      //   .then(res => res.json())
-      //   .then(book => navigate('MyBooks'))
       }else{
         this.props.navigation.navigate('BookCheckOut') //pass error
       }
     }
     this.setState({scanning: false});
     console.log(e.data);
-    // Linking.openURL(e.data).catch(err => console.error('An error occured', err));
-    // return;
   }
 
 
