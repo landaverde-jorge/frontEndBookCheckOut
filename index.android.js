@@ -16,14 +16,6 @@ export default class frontEndBookCheckOutV2 extends Component {
           <Navigator/>
         )
       }
-
-  // render() {
-  //   return (
-  //     <View style={styles.container}>
-  //         <App/>
-  //     </View>
-  //   );
-  // }
 }
 
 const styles = StyleSheet.create({

@@ -5,13 +5,26 @@ import {
   View,
   Text,
   StyleSheet,
+  AppRegistry,
+  Button,
 } from 'react-native';
 
 export default class BookCheckOut extends Component {
   render() {
+    const tempBook = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
-        <Text>I'm the BookCheckOut component</Text>
+        <Text>{tempBook.title}</Text>
+        <View style={styles.buttons}>
+          <Button
+          onPress={() => this.props.navigation.navigate('ScanScreen', {id:tempBook._id})}
+          title="Check Out"
+          />
+          <Button
+          onPress={() => this.props.navigation.navigate('Library')}
+          title="Cancel"
+          />
+        </View>
       </View>
     );
   }
@@ -20,6 +33,11 @@ export default class BookCheckOut extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "flex-end",
   },
 });
 

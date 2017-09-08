@@ -22,6 +22,17 @@ export default class ScanScreen extends Component {
 
   _handleBarCodeRead(e) {
     Vibration.vibrate();
+    if(this.state.scanning){
+      const refId = this.props.navigation.state.params.id;
+      if(refId === e.data){
+        this.props.navigation.navigate('MyBooks')
+      // fetch('http://localhost/books/id')
+      //   .then(res => res.json())
+      //   .then(book => navigate('MyBooks'))
+      }else{
+        this.props.navigation.navigate('BookCheckOut') //pass error
+      }
+    }
     this.setState({scanning: false});
     console.log(e.data);
     // Linking.openURL(e.data).catch(err => console.error('An error occured', err));
@@ -35,18 +46,20 @@ export default class ScanScreen extends Component {
         <Text style={styles.welcome}>
         QRcode Scanner
         </Text>
-        <View style={styles.rectangleContainer}>
-        <Camera style={styles.camera} type={this.state.cameraType}
+        { this.state.scanning ?
+          <View style={styles.rectangleContainer}>
+            <Camera style={styles.camera} type={this.state.cameraType}
                 onBarCodeRead={this._handleBarCodeRead.bind(this)}>
             <View style={styles.rectangleContainer}>
             <View style={styles.rectangle}/>
             </View>
-        </Camera>
-        </View>
-          <Text style={styles.instructions}>
-            Double tap R on your keyboard to reload,{'\n'}
-          </Text>
-        </View>
+            </Camera>
+          </View>
+        : null }
+        <Text style={styles.instructions}>
+          Reload,{'\n'}
+        </Text>
+      </View>
     );
   }
 }

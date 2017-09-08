@@ -29,13 +29,17 @@ export default class Login extends React.Component {
           <Text>{user.name}</Text>
           <Text>{user.email}</Text>
         </View>
-        <Button
+        {/* <Button
         onPress={() => Linking.openURL(`${AUTH_URL}?scope=${SCOPES}&client_id=${CLIENT_ID}`)}
         title="Open slack"
         />
         <Button
         onPress={() => this.props.navigation.navigate('DrawerOpen')}
         title="Open DrawerNavigator"
+        /> */}
+        <Button
+        onPress={() => this.props.navigation.navigate('MyBooks')}
+        title="Open slack"
         />
       </KeyboardAvoidingView>
     );

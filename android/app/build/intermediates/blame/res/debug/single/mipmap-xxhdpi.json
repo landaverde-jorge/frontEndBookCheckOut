@@ -2,5 +2,9 @@
     {
         "merged": "/Users/jorgelandaverde/Projects/frontEndBookCheckOutV2/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/Users/jorgelandaverde/Projects/frontEndBookCheckOutV2/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }
 ]

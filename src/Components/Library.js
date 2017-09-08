@@ -10,13 +10,35 @@ import {
 } from 'react-native';
 
 export default class Library extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "books": [],
+    }
+  }
+  componentDidMount(){
+    fetch('http://192.168.29.237:3000/books/')
+     .then(res => res.json())
+     .then(books => this.setState({
+       "books" : books
+     }))
+  }
+
   render() {
+    const {navigate}=this.props.navigation
     return (
       <View style={styles.container}>
         <Text style={styles.heading}>Library</Text>
+        {
+          this.state.books.map(book => {
+            return (<Text key={book._id}
+              onPress={() => navigate('BookCheckOut', book)}
+              >{book.title}</Text>);
+          })
+        }
         <Button
         onPress={() => this.props.navigation.navigate('DrawerOpen')}
-        title="Open DrawerNavigator"
+        title="Open Drawer Navigator"
         />
       </View>
     );

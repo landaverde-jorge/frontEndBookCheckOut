@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import Library from './Library';
 import MyBooks from './MyBooks';
 import ScanScreen from './ScanScreen';
+import BookCheckOut from './BookCheckOut';
 
 import { DrawerNavigator } from 'react-navigation';
 
@@ -16,6 +17,7 @@ const Navigator = DrawerNavigator({
   Library: {screen: Library},
   MyBooks: {screen: MyBooks},
   ScanScreen: {screen: ScanScreen},
+  BookCheckOut: {screen: BookCheckOut},
 
 });
 
