@@ -23,10 +23,11 @@ export default class ScanScreen extends Component {
   _handleBarCodeRead(e) {
     Vibration.vibrate();
     this.setState({scanning: false});
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err));
-    return;
+    console.log(e.data);
+    // Linking.openURL(e.data).catch(err => console.error('An error occured', err));
+    // return;
   }
-  
+
 
   render() {
     return (
