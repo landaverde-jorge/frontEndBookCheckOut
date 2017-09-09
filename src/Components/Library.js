@@ -17,7 +17,7 @@ export default class Library extends Component {
     }
   }
   componentDidMount(){
-    fetch('http://192.168.87.205:3000/books/')
+    fetch('https://protected-cliffs-35997.herokuapp.com/books')
      .then(res => res.json())
      .then(books => this.setState({
        "books" : books
