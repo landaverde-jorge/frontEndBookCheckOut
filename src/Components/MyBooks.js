@@ -20,12 +20,12 @@ export default class MyBooks extends Component {
   // }
 
   render() {
-    const refId = this.props.navigation.state.params.id;
+    const refTitle = this.props.navigation.state.params.title;
 
     return (
       <View style={styles.container}>
         <Text>I'm the MyBooks component</Text>
-        <Text>{refId}</Text>
+        <Text>{refTitle}</Text>
         <Button
         onPress={() => this.props.navigation.navigate('DrawerOpen')}
         title="Open DrawerNavigator"

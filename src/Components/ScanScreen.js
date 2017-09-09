@@ -23,9 +23,9 @@ export default class ScanScreen extends Component {
   _handleBarCodeRead(e) {
     Vibration.vibrate();
     if(this.state.scanning){
-      const refId = this.props.navigation.state.params.id;
-      if(refId === e.data){
-        this.props.navigation.navigate('MyBooks', {id:refId})
+      const tempBook = this.props.navigation.state.params;
+      if(tempBook._id === e.data){
+        this.props.navigation.navigate('MyBooks', tempBook)
       }else{
         this.props.navigation.navigate('BookCheckOut') //pass error
       }

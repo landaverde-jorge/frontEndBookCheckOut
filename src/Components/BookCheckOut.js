@@ -17,7 +17,7 @@ export default class BookCheckOut extends Component {
         <Text>{tempBook.title}</Text>
         <View style={styles.buttons}>
           <Button
-          onPress={() => this.props.navigation.navigate('ScanScreen', {id:tempBook._id})}
+          onPress={() => this.props.navigation.navigate('ScanScreen', tempBook)}
           title="Check Out"
           />
           <Button
