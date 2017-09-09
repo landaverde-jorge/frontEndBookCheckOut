@@ -20,14 +20,12 @@ export default class MyBooks extends Component {
   // }
 
   render() {
+    const refId = this.props.navigation.state.params.id;
+
     return (
       <View style={styles.container}>
-        {/* <Text>I'm the MyBooks component</Text>
-        {
-          this.state.books.map(book => {
-            return (<Text key={Math.random()}>{book}</Text>);
-          })
-        } */}
+        <Text>I'm the MyBooks component</Text>
+        <Text>{refId}</Text>
         <Button
         onPress={() => this.props.navigation.navigate('DrawerOpen')}
         title="Open DrawerNavigator"

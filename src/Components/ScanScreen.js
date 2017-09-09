@@ -25,7 +25,7 @@ export default class ScanScreen extends Component {
     if(this.state.scanning){
       const refId = this.props.navigation.state.params.id;
       if(refId === e.data){
-        this.props.navigation.navigate('MyBooks')
+        this.props.navigation.navigate('MyBooks', {id:refId})
       }else{
         this.props.navigation.navigate('BookCheckOut') //pass error
       }
