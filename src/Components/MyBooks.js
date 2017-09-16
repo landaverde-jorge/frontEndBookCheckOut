@@ -20,7 +20,7 @@ export default class MyBooks extends Component {
   // }
 
   render() {
-    if(this.props.navigation.state.params.title !== null){
+    if(this.props.navigation.state.params !== null){
       const refTitle = this.props.navigation.state.params.title;
     }else{
       const refTitle = "Empty";
