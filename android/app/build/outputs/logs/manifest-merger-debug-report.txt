@@ -104,11 +104,11 @@ ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/
 	android:name
 		ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:33:21-69
 data
-ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:11-71
+ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:11-67
 	android:host
-		ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:39-69
+		ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:38-65
 	android:scheme
-		ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:17-38
+		ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:34:17-37
 activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from /Users/jorgelandaverde/Projects/frontEndBookCheckOut/android/app/src/main/AndroidManifest.xml:37:7-84
 	android:name

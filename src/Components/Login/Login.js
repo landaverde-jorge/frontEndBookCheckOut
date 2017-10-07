@@ -14,6 +14,19 @@ export default class Login extends React.Component {
     super(props);
     this.state = {user: {}};
   }
+
+  onSignIn = async () => {
+    const url = await Linking.getInitialURL()
+    const token = url.replace("http://bookcheckout.io/?token=","")
+    // console.log(JSON.parse(token), "==================", url);
+    console.log(token, "==================", url);
+
+    if(!url)
+    {
+      throw new Error("Auth Error");
+    }
+  }
+
   render() {
     let {user} = this.state;
     return (
@@ -25,42 +38,52 @@ export default class Login extends React.Component {
           />
           <Text style={styles.title}>An app made for TXT using React Native</Text>
         </View>
-        <View style={styles.formContainer}>
+        <View style={styles.slackButton}>
+          {/* <Button
+          onPress={() => this.props.navigation.navigate('Library')}
+          title="Sign In"
+          /> */}
+          <Button
+          onPress={() => Linking.openURL(`${AUTH_URL}?scope=${SCOPES}&client_id=${CLIENT_ID}`)}
+          title="Sign In"
+          />
+        </View>
+
+        {/* <View style={styles.formContainer}>
           <Text>{user.name}</Text>
           <Text>{user.email}</Text>
-        </View>
+        </View> */}
         {/* <Button
-        onPress={() => Linking.openURL(`${AUTH_URL}?scope=${SCOPES}&client_id=${CLIENT_ID}`)}
-        title="Open slack"
-        />
-        <Button
         onPress={() => this.props.navigation.navigate('DrawerOpen')}
         title="Open DrawerNavigator"
         /> */}
-        <Button
+        {/* <Button
         onPress={() => this.props.navigation.navigate('MyBooks')}
         title="Open slack"
-        />
+        /> */}
       </KeyboardAvoidingView>
     );
   }
 
   componentDidMount(){
-    Linking.getInitialURL()
-      .then(url => {
-        if(!url){
-          throw new Error("user needs to authenticate");
-        }
-        const code = url.replace("http://bookcheckout.io/?code=","")
-        console.log("==========================================", code);
-
-        return fetch(`${ACCESS_URL}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${code}`)
-      })
-      .then(res => res.json())
-      .then(result => {
-        console.log("=========================================", result);
-        this.setState({user: result.user})
-      }).catch(err => {console.log("ERROR")});
+    this.onSignIn()
+    .then( () => this.props.navigation.navigate('Library'))
+    .catch(() => {})
+    // Linking.getInitialURL()
+    //   .then(url => {
+    //     if(!url){
+    //       throw new Error("user needs to authenticate");
+    //     }
+    //     const code = url.replace("http://bookcheckout.io/?code=","")
+    //     console.log("==========================================", code);
+    //
+    //     return fetch(`${ACCESS_URL}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${code}`)
+    //   })
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     console.log("=========================================", result);
+    //     this.setState({user: result.user})
+    //   }).catch(err => {console.log("ERROR")});
   }
 }
 
@@ -68,13 +91,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2c3e50',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    justifyContent: 'center',
   },
   logoContainer: {
-    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 50,
   },
   logo: {
     width: 300,
@@ -89,6 +111,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
     // alignItems: 'center',
     // justifyContent: 'center',
+  },
+  slackButton: {
+    paddingRight: 35,
+    paddingLeft: 35,
   },
 
 });

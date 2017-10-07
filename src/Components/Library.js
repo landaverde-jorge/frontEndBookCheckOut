@@ -10,10 +10,20 @@ import {
 } from 'react-native';
 
 export default class Library extends Component {
+  static navigationOptions = {
+      drawerLabel: 'Library',
+      // drawerIcon: ({ tintColor }) => (
+      //   <Image
+      //     source={require('./chats-icon.png')}
+      //     style={[styles.icon, {tintColor: tintColor}]}
+      //   />
+      // ),
+    };
   constructor(props){
     super(props);
     this.state = {
       "books": [],
+      "users": [],
     }
   }
   componentDidMount(){
@@ -22,6 +32,11 @@ export default class Library extends Component {
      .then(books => this.setState({
        "books" : books
      }))
+     fetch('https://protected-cliffs-35997.herokuapp.com/users')
+      .then(res => res.json())
+      .then(users => this.setState({
+        "users" : users
+      }))
   }
 
   render() {
@@ -30,9 +45,9 @@ export default class Library extends Component {
       <View style={styles.container}>
         <Text style={styles.heading}>Library</Text>
         {
-          this.state.books.map(book => {
+          this.state.books.map((book, user) => {
             return (<Text key={book._id}
-              onPress={() => navigate('BookCheckOut', book)}
+              onPress={() => navigate('BookCheckOut', book, user)}
               >{book.title}</Text>);
           })
         }

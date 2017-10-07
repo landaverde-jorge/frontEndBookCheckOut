@@ -20,12 +20,8 @@ export default class MyBooks extends Component {
   // }
 
   render() {
-    if(this.props.navigation.state.params !== null){
-      console.log(this.props.navigation.state.params);
-      const refTitle = this.props.navigation.state.params.title;
-    }else{
-      const refTitle = "Empty";
-    }
+    const refTitle = this.props.navigation.state.params.title;
+
     return (
       <View style={styles.container}>
         <Text>I'm the MyBooks component</Text>

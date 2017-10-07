@@ -47,8 +47,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="bookcheckout.io"
-                    android:scheme="http" />
+                    android:host="bookcheckout"
+                    android:scheme="app" />
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
