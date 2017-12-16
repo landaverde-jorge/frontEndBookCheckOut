@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, KeyboardAvoidingView, Button, Linking} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  KeyboardAvoidingView,
+  Button,
+  Linking
+} from 'react-native';
 import LoginForm from './LoginForm';
 
 const AUTH_URL = 'https://slack.com/oauth/authorize';
@@ -18,8 +27,9 @@ export default class Login extends React.Component {
   onSignIn = async () => {
     const url = await Linking.getInitialURL()
     const token = url.replace("http://bookcheckout.io/?token=","")
-    // console.log(JSON.parse(token), "==================", url);
-    console.log(token, "==================", url);
+    //const obj = JSON.parse(token);
+    // console.log(token, "==================", url);
+    console.log(token);
 
     if(!url)
     {

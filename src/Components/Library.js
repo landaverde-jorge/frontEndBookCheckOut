@@ -28,11 +28,13 @@ export default class Library extends Component {
   }
   componentDidMount(){
     fetch('https://protected-cliffs-35997.herokuapp.com/books')
+    // fetch('https://localhost:3000/books')
      .then(res => res.json())
      .then(books => this.setState({
        "books" : books
      }))
      fetch('https://protected-cliffs-35997.herokuapp.com/users')
+     // fetch('https://localhost:3000/users')
       .then(res => res.json())
       .then(users => this.setState({
         "users" : users
